@@ -1,0 +1,15 @@
+package enums;
+
+public enum RequestStatus {
+    PENDING,
+    DISPATCHED,
+    COLLECTED,
+    FAILED,
+    REPORTED,
+    CANCELLED,
+    VERIFIED,
+    RECEIVED_AT_WAREHOUSE,
+    READY_FOR_SHIPMENT,
+    INCOMPLETED_INFO,
+    PENDING_FINANCIAL_APPROVAL;
+}
