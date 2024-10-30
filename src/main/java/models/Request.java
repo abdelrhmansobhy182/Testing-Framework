@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Request {
 
     private String id;
-    private RequestStatus requestStatus;
+    private RequestStatus status;
     private User customer;
     private Float amount;
     private String giftId;
@@ -17,12 +17,21 @@ public class Request {
     public Request() {
     }
 
+    public Request(String id, Float amount, String addressId, String giftId, String collectionDate) {
+        this.id = id;
+        this.amount = amount;
+        this.addressId = addressId;
+        this.giftId = giftId;
+        this.collectionDate = collectionDate;
+        this.status = RequestStatus.DISPATCHED;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setRequestStatus(RequestStatus requestStatus) {
-        this.requestStatus = requestStatus;
+    public void setStatus(RequestStatus requestStatus) {
+        this.status = requestStatus;
     }
 
     public void setCustomer(User customer) {
@@ -49,8 +58,8 @@ public class Request {
         return id;
     }
 
-    public RequestStatus getRequestStatus() {
-        return requestStatus;
+    public RequestStatus getStatus() {
+        return status;
     }
 
     public User getCustomer() {
