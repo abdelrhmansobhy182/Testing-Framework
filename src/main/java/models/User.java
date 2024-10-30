@@ -1,11 +1,13 @@
 package models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import enums.AuthTypes;
 
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
     private AuthTypes type;
@@ -14,6 +16,7 @@ public class User {
     private String id;
     private List<Role> roles;
     private String jwtToken;
+    private List<Request> requests;
 
     public User() {
     }
@@ -24,51 +27,59 @@ public class User {
         this.password = password;
     }
 
-    public AuthTypes getType() {
-        return type;
-    }
-
     public void setType(AuthTypes type) {
         this.type = type;
-    }
-
-    public String getPhone() {
-        return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public void setId(String id) {
         this.id = id;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public void setJwtToken(String jwtToken) {
+        this.jwtToken = jwtToken;
+    }
+
+    public void setRequests(List<Request> requests) {
+        this.requests = requests;
+    }
+
+    public AuthTypes getType() {
+        return type;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
     }
 
     public String getJwtToken() {
         return jwtToken;
     }
 
-    public void setJwtToken(String jwtToken) {
-        this.jwtToken = jwtToken;
+    public List<Request> getRequests() {
+        return requests;
     }
 }

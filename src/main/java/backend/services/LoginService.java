@@ -1,12 +1,11 @@
 package backend.services;
 
-import backend.GraphQLQuery;
 import models.Query;
 import models.User;
 
 public class LoginService {
 
-    public static Query Login(User user) {
+    public static Query login(User user) {
 
         Query query = new Query();
         query.setQuery( "mutation login(" +
