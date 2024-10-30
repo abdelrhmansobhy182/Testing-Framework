@@ -1,4 +1,4 @@
-package frontend.tests;
+package test_cases;
 
 import frontend.utilities.ElementUtilities;
 import io.github.bonigarcia.wdm.WebDriverManager;

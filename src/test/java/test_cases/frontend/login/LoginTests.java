@@ -1,7 +1,7 @@
-package frontend.tests.login;
+package test_cases.frontend.login;
 
 import frontend.pages.LoginPage;
-import frontend.tests.BaseTest;
+import test_cases.BaseTest;
 import frontend.utilities.ElementUtilities;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
