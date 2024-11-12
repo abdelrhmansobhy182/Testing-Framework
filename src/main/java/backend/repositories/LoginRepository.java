@@ -16,7 +16,6 @@ public class LoginRepository {
             Response response = GraphQLQuery.executeQuery(query,null,false,false);
             return GraphQLQuery.parseResponse(response.asString(), "login", User.class);
         } catch (IOException e) {
-            // Handle or log the exception here
             throw new RuntimeException("Failed to login user: " + e.getMessage(), e);
         }
     }

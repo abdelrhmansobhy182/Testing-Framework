@@ -1,18 +1,18 @@
-package models;
+package models.requests;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import enums.RequestStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Request {
 
-    private String id;
-    private RequestStatus status;
-    private User customer;
-    private Float amount;
-    private String giftId;
-    private String addressId;
-    private String collectionDate;
+    protected String id;
+    protected RequestStatus status;
+    protected Float amount;
+    protected String addressId;
+    protected String collectionDate;
 
     public Request() {
     }
@@ -21,7 +21,6 @@ public class Request {
         this.id = id;
         this.amount = amount;
         this.addressId = addressId;
-        this.giftId = giftId;
         this.collectionDate = collectionDate;
         this.status = RequestStatus.DISPATCHED;
     }
@@ -34,16 +33,8 @@ public class Request {
         this.status = requestStatus;
     }
 
-    public void setCustomer(User customer) {
-        this.customer = customer;
-    }
-
     public void setAmount(Float amount) {
         this.amount = amount;
-    }
-
-    public void setGiftId(String giftId) {
-        this.giftId = giftId;
     }
 
     public void setAddressId(String addressId) {
@@ -62,16 +53,8 @@ public class Request {
         return status;
     }
 
-    public User getCustomer() {
-        return customer;
-    }
-
     public Float getAmount() {
         return amount;
-    }
-
-    public String getGiftId() {
-        return giftId;
     }
 
     public String getAddressId() {

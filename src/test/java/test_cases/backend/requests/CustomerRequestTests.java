@@ -3,8 +3,8 @@ package test_cases.backend.requests;
 import backend.repositories.AddPhoneRepository;
 import backend.repositories.RequestsRepository;
 import enums.RequestStatus;
-import helpers.HelperMethods;
-import models.Request;
+import helpers.GeneralHelperMethods;
+import models.requests.CustomerRequest;
 import models.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -25,16 +25,16 @@ public class CustomerRequestTests {
 
     @Test
     public void testWebFormRequestByNewCustomer() throws IOException {
-        String customerPhone = HelperMethods.generatePhoneNumber();
+        String customerPhone = GeneralHelperMethods.generatePhoneNumber();
         customer.setPhone(customerPhone);
         customer = addPhoneRepository.addPhone(customer);
-        Request customerRequest = new Request(
+        CustomerRequest customerRequest = new CustomerRequest(
                 customer.getRequests().get(0).getId(),
-                (float) HelperMethods.generateAmountNumber(),
+                GeneralHelperMethods.generateAmountNumber(),
                 "3638",
                 "135",
-                HelperMethods.getCurrentDate());
-        customerRequest = requestsRepository.updateRequestWebForm(customerRequest);
+                GeneralHelperMethods.getCurrentDate());
+        customerRequest = requestsRepository.createCustomerRequest(customerRequest);
         Assert.assertEquals(customerRequest.getStatus(), RequestStatus.DISPATCHED);
         Assert.assertTrue(customerPhone.contains(customerRequest.getCustomer().getPhone()));
     }
